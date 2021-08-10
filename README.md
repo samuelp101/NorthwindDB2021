@@ -11,6 +11,7 @@ Changes made to the original file:
      -  Updated transaction dates in the dbo.Orders table are between "July 4th, 2018" and "May 6th, 2020"
     
   2. Renamed [dbo].[Order Details] to [dbo].[OrderDetails]
+     (removed the space between "Order" and "Details")
 
   3. Primary key "CustomerID" column for the dbo.Customers table changed to "int" type with auto-increment
      -  All other tables that reference the "CustomerID" column are changed to reflect correct data type.
