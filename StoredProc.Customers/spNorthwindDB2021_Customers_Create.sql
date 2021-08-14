@@ -1,7 +1,8 @@
 ﻿-- Use NorthwindDB2021
 
 CREATE PROCEDURE dbo.spNorthwindDB2021_Customers_Create
-	@CompanyName nvarchar(40)
+        @CustomerId int = null
+	,@CompanyName nvarchar(40)
 	,@ContactName nvarchar(30)
 	,@ContactTitle nvarchar(30)
 	,@Address nvarchar(60)
