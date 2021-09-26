@@ -1,34 +1,35 @@
 -- Use NorthwindDB2021
 
-ALTER PROC dbo.spNorthwindDB2021_Customers_Query
-	@CompanyName nvarchar(40) = null
-	,@ContactName nvarchar(30) = null
-	,@ContactTitle nvarchar(30) = null
+CREATE PROC dbo.spNorthwindDB2021_Employees_Query
+	@EmplotyeeId int = null
+	,@LastName nvarchar(20)
+	,@FirstName nvarchar(10)
+	,@Title nvarchar(30) = null
+	,@TitleOfCourtesy nvarchar(25) = null
+	,@BirthDate datetime = null
+	,@HireDate datetime = null
 	,@Address nvarchar(60) = null
 	,@City nvarchar(15) = null
 	,@Region nvarchar(15) = null
 	,@PostalCode nvarchar(10) = null
 	,@Country nvarchar(15) = null
+	,@HomePhone nvarchar(24) = null
+	,@Extension nvarchar(4) = null
+	,@Notes ntext = null
+	,@ReportsTo int = null
+	,@PhotoPath nvarchar(255) = null
 AS
 
-/*
-DECLARE 
-	@CompanyName nvarchar(40) = 'A'
-	,@ContactName nvarchar(30) = null
-	,@ContactTitle nvarchar(30) = null
-	,@Address nvarchar(60) = null
-	,@City nvarchar(15) = null
-	,@Region nvarchar(15) = null
-	,@PostalCode nvarchar(10) = null
-	,@Country nvarchar(15) = null
+IF (@LastName IS NOT NULL) SET @LastName = @LastName + '%';
+IF (@FirstName IS NOT NULL) SET @FirstName = @FirstName + '%';
 
--- */
+IF (@Title IS NOT NULL) SET @Title = @Title + '%';
+IF (@TitleOfCourtesy IS NOT NULL) SET @TitleOfCourtesy = @TitleOfCourtesy + '%';
 
-IF (@CompanyName IS NOT NULL) SET @CompanyName = @CompanyName + '%';
-IF (@ContactName IS NOT NULL) SET @ContactName = @ContactName + '%';
 IF (@Address IS NOT NULL) SET @Address = '%' + @Address + '%';
 IF (@City IS NOT NULL) SET @City = @City + '%';
 IF (@Region IS NOT NULL) SET @Region = @Region + '%';
+IF (@PostalCode IS NOT NULL) SET @PostalCode = @PostalCode + '%';
 IF (@Country IS NOT NULL) SET @Country = @Country + '%';
 
 
